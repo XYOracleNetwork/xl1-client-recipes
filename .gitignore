@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+.npmrc
+.xy/
+build/
+coverage/
+dist/
+node_modules/
+.eslintcache
+*.log
+.DS_Store

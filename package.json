@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@xyo-network/xl1-client-recipes",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Runnable Node.js recipes for XL1 wallets, REST gateways, balances, and transfers",
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "balance": "pnpm start balance",
+    "build": "package-build",
+    "check": "pnpm lint && pnpm compile && pnpm test",
+    "clean": "package-clean",
+    "compile": "package-compile",
+    "head": "pnpm start head",
+    "lint": "package-lint",
+    "lint:fix": "package-fix",
+    "networks": "pnpm start networks",
+    "send": "pnpm start send",
+    "start": "tsx src/cli.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "wallet": "pnpm start wallet"
+  },
+  "dependencies": {
+    "@ariestools/sdk": "~8.1.0",
+    "@metamask/json-rpc-engine": "~10.5.0",
+    "@opentelemetry/api": "~1.9.1",
+    "@xyo-network/sdk": "~7.2.0",
+    "@xyo-network/sdk-protocol": "~7.2.0",
+    "ajv": "~8.20.0",
+    "async-mutex": "~0.5.0",
+    "ethers": "~6.17.0",
+    "zod": "~4.4.3"
+  },
+  "devDependencies": {
+    "@ariestools/eslint-config-flat": "~8.7.14",
+    "@ariestools/toolchain": "~8.7.14",
+    "@ariestools/tsconfig": "~8.7.14",
+    "@types/node": "~24.10.15",
+    "@xyo-network/xl1-sdk": "~4.4.2",
+    "dotenv": "~17.4.2",
+    "eslint": "~10.7.0",
+    "eslint-import-resolver-typescript": "~4.4.5",
+    "tsx": "~4.23.1",
+    "typescript": "~6.0.3",
+    "vite": "~8.1.4",
+    "vitest": "~4.1.10"
+  },
+  "packageManager": "pnpm@11.13.0",
+  "engines": {
+    "node": ">=24"
+  }
+}

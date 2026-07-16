@@ -1,0 +1,12 @@
+allowBuilds:
+  esbuild: true
+  unrs-resolver: true
+minimumReleaseAgeExclude:
+  - '@xyo-network/sdk-protocol-core@7.2.0'
+  - '@xyo-network/sdk-protocol@7.2.0'
+  - '@xyo-network/sdk@7.2.0'
+  - '@xyo-network/xl1-protocol@4.4.2'
+  - '@xyo-network/xl1-sdk@4.4.2'
+  - '@ariestools/eslint-config-flat@8.7.14'
+  - '@ariestools/toolchain@8.7.14'
+  - '@ariestools/tsconfig@8.7.14'
