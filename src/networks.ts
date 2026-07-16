@@ -1,3 +1,5 @@
+import 'dotenv/config'
+
 import { z } from 'zod'
 
 export const NetworkIdZod = z.enum(['mainnet', 'sequence'])
@@ -29,6 +31,16 @@ export const ClientNetworks: Readonly<Record<NetworkId, ClientNetwork>> = {
   }),
 }
 
-export function getClientNetwork(value: unknown = 'sequence'): ClientNetwork {
-  return ClientNetworks[NetworkIdZod.parse(value)]
+export function resolveNetworkId(
+  value?: unknown,
+  environment: NodeJS.ProcessEnv = process.env,
+): NetworkId {
+  return NetworkIdZod.parse(value ?? environment.XL1_NETWORK ?? 'sequence')
+}
+
+export function getClientNetwork(
+  value?: unknown,
+  environment: NodeJS.ProcessEnv = process.env,
+): ClientNetwork {
+  return ClientNetworks[resolveNetworkId(value, environment)]
 }

@@ -8,7 +8,7 @@ import {
 import { readAccountBalance } from './balance.js'
 import { createGatewayRunner, createReadOnlyGateway } from './gateway.js'
 import {
-  ClientNetworks, getClientNetwork, NetworkIdZod,
+  ClientNetworks, getClientNetwork, resolveNetworkId,
 } from './networks.js'
 import { sendXl1 } from './transfer.js'
 import { createWalletAccount, requireSeedPhrase } from './wallet.js'
@@ -50,7 +50,7 @@ function writeLine(value: string): void {
 }
 
 function selectedNetwork() {
-  return NetworkIdZod.parse(values.network ?? process.env.XL1_NETWORK ?? 'sequence')
+  return resolveNetworkId(values.network)
 }
 
 function selectedAccountIndex(): string {

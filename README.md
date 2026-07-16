@@ -58,10 +58,27 @@ const { account, runner } = await createGatewayRunner({
 })
 ```
 
-Verify the read-only path against the live Sequence static data layout:
+Omit `networkId` to use `XL1_NETWORK` from `.env` (falling back to `sequence`):
+
+```ts
+const gateway = await createReadOnlyGateway()
+const { runner } = await createGatewayRunner({
+  seedPhrase: process.env.XL1_SEED_PHRASE!,
+})
+```
+
+An explicit `networkId` or CLI `--network` flag takes precedence over `.env`.
+
+Verify the read-only path against the network selected in `.env`:
 
 ```sh
 pnpm head
+```
+
+Override it explicitly when needed:
+
+```sh
+pnpm head --network sequence
 ```
 
 ## 3. Get a balance

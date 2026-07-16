@@ -1,16 +1,9 @@
 import {
-  basicRestRunnerLocator,
-  basicRestViewerLocator,
   buildSimpleXyoSigner,
   ConfigZod,
-  resolveFinalizedAlias,
-  restConnectionFromS3Bucket,
+  getRestGateway,
+  getRestGatewayRunner,
   restGatewayConfigFromEndpoint,
-  type XyoGateway,
-  XyoGatewayMoniker,
-  type XyoGatewayRunner,
-  XyoGatewayRunnerMoniker,
-  XyoSignerWrapper,
 } from '@xyo-network/xl1-sdk'
 
 import { errorLogger } from './logger.js'
@@ -23,30 +16,20 @@ export interface CreateRunnerOptions {
   seedPhrase: string
 }
 
-function restRemoteConfig(endpoint: string) {
-  const buckets = restGatewayConfigFromEndpoint(endpoint)
-  return {
-    chainState: buckets.chainState ? restConnectionFromS3Bucket(buckets.chainState) : undefined,
-    finalized: restConnectionFromS3Bucket(resolveFinalizedAlias(buckets, 'xl1-client-recipes')),
-    index: buckets.index ? restConnectionFromS3Bucket(buckets.index) : undefined,
-  }
-}
-
-export async function createReadOnlyGateway(networkId: NetworkId = 'sequence') {
+export async function createReadOnlyGateway(networkId?: NetworkId) {
   const network = getClientNetwork(networkId)
-  const locator = await basicRestViewerLocator(
-    `xl1-client-recipes-${network.id}`,
-    restRemoteConfig(network.endpoint),
-    network.dataLakeUrl,
-    { initRewardsCache: false },
-  )
-  locator.context.logger = errorLogger
-  return await locator.getInstance<XyoGateway>(XyoGatewayMoniker)
+  return await getRestGateway({
+    ...restGatewayConfigFromEndpoint(network.endpoint),
+    dataLakeEndpoint: network.dataLakeUrl,
+    initRewardsCache: false,
+    logger: errorLogger,
+    name: `xl1-client-recipes-${network.id}`,
+  })
 }
 
 export async function createGatewayRunner({
   accountIndex = '0',
-  networkId = 'sequence',
+  networkId,
   seedPhrase,
 }: CreateRunnerOptions) {
   const network = getClientNetwork(networkId)
@@ -58,18 +41,15 @@ export async function createGatewayRunner({
     account,
   )
 
-  const locator = await basicRestRunnerLocator(
-    `xl1-client-recipes-${network.id}`,
-    restRemoteConfig(network.endpoint),
-    network.dataLakeUrl,
-    {
-      initRewardsCache: false,
-      rpcUrl: network.rpcUrl,
-      signerFactory: XyoSignerWrapper.factory<XyoSignerWrapper>(XyoSignerWrapper.dependencies, { signer }),
-    },
-  )
-  locator.context.logger = errorLogger
-  const runner = await locator.getInstance<XyoGatewayRunner>(XyoGatewayRunnerMoniker)
+  const runner = await getRestGatewayRunner({
+    dataLakeEndpoint: network.dataLakeUrl,
+    endpoint: network.endpoint,
+    initRewardsCache: false,
+    logger: errorLogger,
+    name: `xl1-client-recipes-${network.id}`,
+    rpcUrl: network.rpcUrl,
+    signer,
+  })
 
   return { account, runner }
 }
