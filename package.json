@@ -34,11 +34,11 @@
     "zod": "~4.4.3"
   },
   "devDependencies": {
-    "@ariestools/eslint-config-flat": "~8.7.15",
-    "@ariestools/toolchain": "~8.7.15",
-    "@ariestools/tsconfig": "~8.7.15",
+    "@ariestools/eslint-config-flat": "~8.7.16",
+    "@ariestools/toolchain": "~8.7.16",
+    "@ariestools/tsconfig": "~8.7.16",
     "@types/node": "~26.1.1",
-    "@xyo-network/xl1-sdk": "~4.4.8",
+    "@xyo-network/xl1-sdk": "~4.4.10",
     "dotenv": "~17.4.2",
     "eslint": "~10.7.0",
     "eslint-import-resolver-typescript": "~4.4.5",
