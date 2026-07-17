@@ -3,7 +3,7 @@ import {
   describe, expect, it,
 } from 'vitest'
 
-import { errorLogger } from './logger.js'
+import { errorLogger } from '../logger.js'
 
 describe('client logger', () => {
   it('only emits error-level messages', () => {

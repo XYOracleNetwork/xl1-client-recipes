@@ -4,7 +4,7 @@ import {
 
 import {
   ClientNetworks, getClientNetwork, resolveNetworkId,
-} from './networks.js'
+} from '../networks.js'
 
 describe('XL1 client networks', () => {
   it('defaults to Sequence when the environment does not select a network', () => {

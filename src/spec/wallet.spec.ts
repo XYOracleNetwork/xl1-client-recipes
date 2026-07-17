@@ -4,7 +4,7 @@ import {
 
 import {
   createDefaultWallet, createWalletAccount, requireSeedPhrase,
-} from './wallet.js'
+} from '../wallet.js'
 
 const TEST_SEED_PHRASE = 'test test test test test test test test test test test junk'
 
