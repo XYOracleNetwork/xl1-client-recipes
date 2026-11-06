@@ -2,7 +2,7 @@
 .env.*
 !.env.example
 .npmrc
-.xy/
+.xy/cache
 build/
 coverage/
 dist/

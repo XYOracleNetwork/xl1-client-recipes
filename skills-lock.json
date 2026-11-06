@@ -1,35 +1,47 @@
 {
   "version": 1,
   "skills": {
+    "ariestools-sdk": {
+      "source": "ariestools/ariestools-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ariestools-sdk/SKILL.md",
+      "computedHash": "f7cbe4c05138f99554b458b8b69001d7e67e113a1ceeb21cebb85ee22abafe66"
+    },
     "xl1-knowledge": {
       "source": "XYOracleNetwork/xyo-skills",
       "sourceType": "github",
       "skillPath": "skills/xl1-knowledge/SKILL.md",
-      "computedHash": "e1fada7de87f702045809d94a9be57977c559e4f5d5513debeff82287c98f2bf"
+      "computedHash": "e1d20f5f9b4ad5c97ea857b346bcb1e3e8e1bc01b956de0354c7c50343cd2bb8"
     },
     "xl1-patterns": {
       "source": "XYOracleNetwork/xyo-skills",
       "sourceType": "github",
       "skillPath": "skills/xl1-patterns/SKILL.md",
-      "computedHash": "2b6f22cf8c442cd0884709c5b45c24083cbf348d9f7e44edcd3a288a3634c854"
+      "computedHash": "855487039126d8d6b945dccd7c242de31b4aa19689f7eff59770eb0af43f6321"
+    },
+    "xl1-testing": {
+      "source": "XYOracleNetwork/xyo-skills",
+      "sourceType": "github",
+      "skillPath": "skills/xl1-testing/SKILL.md",
+      "computedHash": "4dda1a71f5f58888c4d7b778d32cb3766627a83fda1a82fd7954b2a43df88e29"
     },
     "xy-development": {
       "source": "XYOracleNetwork/xyo-skills",
       "sourceType": "github",
       "skillPath": "skills/xy-development/SKILL.md",
-      "computedHash": "c815408b06a1f3b93d96ea441b86a95e84abb374a135226dfb6b970aefbf687f"
+      "computedHash": "a32f1021f3243bf3b59138f15d27d179a1004af46c75992e106c6410c0ddb2ea"
     },
     "xy-toolchain": {
       "source": "XYOracleNetwork/xyo-skills",
       "sourceType": "github",
       "skillPath": "skills/xy-toolchain/SKILL.md",
-      "computedHash": "9405fbf6339e9227adcb0117cf2eff21a21f725f350b2186523a53516c7b9e68"
+      "computedHash": "0dd19584a4f7fc27175b78f806cbdea8cadf04bd418d5e4e142a5752b0fbadec"
     },
     "xyo-knowledge": {
       "source": "XYOracleNetwork/xyo-skills",
       "sourceType": "github",
       "skillPath": "skills/xyo-knowledge/SKILL.md",
-      "computedHash": "84a397df53acbf53e4a352bf48f2f1347df0629957d303206a0342667b702978"
+      "computedHash": "09bd0f4f1887c39afefe6e08c54309ce6d6d9310f741abab7dca10c2fc586c83"
     }
   }
 }
