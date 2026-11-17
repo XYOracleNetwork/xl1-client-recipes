@@ -17,7 +17,7 @@ informational messages or time-budget warnings.
 ## Requirements
 
 - Node.js 24 or newer
-- pnpm 11
+- pnpm >=12.21.0 <13.0.0
 
 ## Setup
 
