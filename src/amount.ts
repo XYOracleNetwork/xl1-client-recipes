@@ -17,7 +17,7 @@ export function parseXl1(value: string): AttoXL1 {
     throw new Error(`Invalid XL1 amount "${value}"; use at most 18 decimal places`)
   }
 
-  const [whole = '0'] = value.split('.')
+  const [whole = '0'] = value.split('.', 1)
   const fractional = (match[1] ?? '').padEnd(18, '0')
   return asAttoXL1(BigInt(whole) * ATTO_PER_XL1 + BigInt(fractional || '0'))
 }
