@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@ariestools/eslint-config-flat": "~9.0.2",
-    "@ariestools/toolchain": "~9.0.2",
+    "@ariestools/toolchain": "~10.3.1",
     "@ariestools/tsconfig": "~9.0.2",
     "@types/node": "~26.1.1",
     "@xyo-network/xl1-sdk": "~4.4.10",
